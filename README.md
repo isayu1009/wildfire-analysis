@@ -16,7 +16,7 @@ Predict the duration of wildfires based on location, size, and cause.
 - Cleaned and filtered the data
 - Exploratory Data Analysis (EDA)
 - Trained a Random Forest model
-- Achieved 92% prediction accuracy
+
 
 ## Results
 - Feature importance: Fire size and state had the most impact
