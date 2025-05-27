@@ -24,5 +24,5 @@ Predict the duration of wildfires based on location, size, and cause.
 
 ## Next Steps
 - Try a different model (XGBoost)
-- Add interactive dashboard (Power BI)
+- Add interactive dashboard (Streamlit)
 
