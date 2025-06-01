@@ -204,14 +204,17 @@ if page == pages[2]:
     """)
 
 if page == pages[3]:
-      
+ 
+   if 'DISCOVERY_YEAR' in df1.columns:
+     df1['DISCOVERY_YEAR'] = pd.to_numeric(df1['DISCOVERY_YEAR'], errors='coerce') 
+   else:
+     st.error("'DISCOVERY_YEAR' column not found in the dataset.")
+     st.write("Available columns:", df1.columns.tolist())
+
 
 
 #---------------------1ST plot--------------------------------------------------------
-# Clean up year values
-    df1['DISCOVERY_YEAR'] = pd.to_numeric(df1['DISCOVERY_YEAR'], errors='coerce')
-    df1 = df1.dropna(subset=['DISCOVERY_YEAR'])
-    df1 = df1[df1['DISCOVERY_YEAR'] >= 1992]
+
 
 
 # Group by state and year
