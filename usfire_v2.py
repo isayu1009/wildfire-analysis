@@ -34,10 +34,11 @@ files = {
         "id": "1M90PGon2io8Bx9NusCvXP1AvFb1X2_yN",
         "name": "fires_cleaned.csv"
     },
-    "US_weatherfire_weather": {
+   "US_weatherfire_weather": {
         "id": "LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB",
-        "name": "US_wildfire_weather_data.csv"
-    }
+      "name": "US_wildfire_weather_data.csv"
+}
+
 }
 
 # Load all datasets
