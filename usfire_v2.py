@@ -205,10 +205,7 @@ if page == pages[2]:
 
 if page == pages[3]:
       
-    @st.cache_data
-    def load_data():
-        return pd.read_csv("fires_cleaned.csv")
-    df1 = load_data()
+
 
 #---------------------1ST plot--------------------------------------------------------
 # Clean up year values
