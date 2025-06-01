@@ -15,8 +15,8 @@ def download_from_drive(file_id, output_name):
          
 # Use your actual Google Drive file IDs here
 download_from_drive("1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB", "fires.csv")
-download_from_drive("1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB"", "fires_cleaned.csv")
-download_from_drive("1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB"", "US_wildfire_weather_data.csv")
+download_from_drive("1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB", "fires_cleaned.csv")
+download_from_drive("1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB", "US_wildfire_weather_data.csv")
 
 
 # === Load data ===
