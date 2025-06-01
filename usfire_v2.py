@@ -15,7 +15,7 @@ def download_from_drive(file_id, output_name):
             try:
                 gdown.download(url, output_name, quiet=False, fuzzy=True)
             except Exception as e:
-                st.error(f"Download failed: {e}"
+                st.error(f"Download failed: {e}")
 
 file_links = {
     'fires': 'https://drive.google.com/file/d/1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X/view?usp=sharing',
