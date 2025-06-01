@@ -7,16 +7,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
-def download_from_drive(file_id, output_name):
-    url = f"https://drive.google.com/uc?id={file_id}"
-    if not os.path.exists(output_name):
-        with st.spinner(f"Downloading {output_name} from Google Drive..."):
-            try:
-                gdown.download(url, output_name, quiet=False, fuzzy=True)
-            except Exception as e:
-                st.error(f"Download failed: {e}")
-
 file_links = {
     'fires': 'https://drive.google.com/file/d/1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X/view?usp=sharing',
     'clean_data': 'https://drive.google.com/file/d/1M90PGon2io8Bx9NusCvXP1AvFb1X2_yN/view?usp=sharing',
