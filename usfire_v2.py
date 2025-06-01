@@ -1,6 +1,8 @@
  # === Import libraries ===
 import os
 import gdown
+import gdown
+gdown.download(id="1EQu_YMcPf5ny-6_JcW5owCip5MEMu8Sg", output="fires_cleaned.csv", quiet=False)
 import streamlit as st
 import pandas as pd
 import numpy as np
