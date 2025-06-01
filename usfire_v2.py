@@ -10,8 +10,11 @@ import seaborn as sns
 def download_from_drive(file_id, output_name):
     url = f"https://drive.google.com/uc?id={file_id}"
     if not os.path.exists(output_name):
-        with st.spinner(f"Téléchargement de {output_name} depuis Google Drive..."):
-            gdown.download(url, output_name, quiet=False)
+        with st.spinner(f"Downloading {output_name} from Google Drive..."):
+            try:
+                gdown.download(url, output_name, quiet=False, fuzzy=True)
+            except Exception as e:
+                st.error(f"Download failed: {e}")
          
 # Use your actual Google Drive file IDs here
 download_from_drive("1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB", "fires.csv")
