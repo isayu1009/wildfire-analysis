@@ -7,6 +7,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+url = "https://drive.google.com/drive/folders/1EQu_YMcPf5ny-6_JcW5owCip5MEMu8Sg"
+gdown.download_folder(url=url, quiet=False, use_cookies=False)
+
+
 def download_from_drive(file_id, output_name):
     url = f"https://drive.google.com/uc?id={file_id}"
     if not os.path.exists(output_name):
