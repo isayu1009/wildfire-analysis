@@ -36,15 +36,6 @@ df = download_csv(files["fires"]["id"], files["fires"]["name"])
 df1 = download_csv(files["fires_cleaned"]["id"], files["fires_cleaned"]["name"])
 df_weather = download_csv(files["US_weatherfire_weather"]["id"], files["US_weatherfire_weather"]["name"])
 
-@st.cache_data
-def download_csv(file_id, filename):
-    url = f"https://drive.google.com/uc?id={file_id}"
-    if not os.path.exists(filename):
-        gdown.download(url, filename, quiet=False)
-    return pd.read_csv(filename)
-
-df = download_csv("1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X", "fires.csv")
-st.write(df.head())
 
 st.title('Projet de 1.88 millions de feux aux USA entre 1992 à 2015')
 st.sidebar.title('Sommaire')
