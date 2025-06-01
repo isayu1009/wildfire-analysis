@@ -18,7 +18,7 @@ def download_csv(file_id, filename):
 # File IDs from Google Drive
 files = {
     "fires": {
-        "id": "t7lLZZlC_FpveffIDz5tqAdpbawMfM4X", 
+        "id": "1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X", 
         "name": "fires.csv"
     },
     "fires_cleaned": {
