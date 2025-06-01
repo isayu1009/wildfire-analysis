@@ -7,14 +7,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df_url = 'https://drive.google.com/uc?export=download&id=1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X'
-df1_url = "https://drive.google.com/uc?export=download&id=1M90PGon2io8Bx9NusCvXP1AvFb1X2_yN"
-df_weather = "https://drive.google.com/uc?export=download&id=1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB"
+@st.cache_data
+def load_data():
+    url = "https://drive.google.com/uc?id=1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X"
+    output = "wildfire.csv"
 
-# === Load data ===
-df = pd.read_csv(df_url)
-df1 = pd.read_csv(df1_url)
-df_weather = pd.read_csv(df_weather)
+    if not os.path.exists(output):
+        gdown.download(url, output, quiet=False)
+    
+    df = pd.read_csv(output)
+    return df
+
+df = load_data()
+
 
 
 st.title('Projet de 1.88 millions de feux aux USA entre 1992 à 2015')
