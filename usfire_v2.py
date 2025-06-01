@@ -7,19 +7,43 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+df_url = 'https://drive.google.com/uc?export=download&id=1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X'
+df1_url = "https://drive.google.com/uc?export=download&id=1M90PGon2io8Bx9NusCvXP1AvFb1X2_yN"
+df_weather = "https://drive.google.com/uc?export=download&id=1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB"
+
+# === Load data ===
+df = pd.read_csv(df_url)
+df1 = pd.read_csv(df1_url)
+df_weather = pd.read_csv(df_weather)
+
 @st.cache_data
-def load_data():
-    url = "https://drive.google.com/uc?id=1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X"
-    output = "wildfire.csv"
+def download_csv(file_id, filename):
+    """Download CSV from Google Drive using gdown."""
+    url = f"https://drive.google.com/uc?id={file_id}"
+    if not os.path.exists(filename):
+        gdown.download(url, filename, quiet=False)
+    return pd.read_csv(filename)
 
-    if not os.path.exists(output):
-        gdown.download(url, output, quiet=False)
-    
-    df = pd.read_csv(output)
-    return df
+# File IDs from Google Drive
+files = {
+    "fires": {
+        "id": "1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X", 
+        "name": "fires.csv"
+    },
+    "fires_cleaned": {
+        "id": "1M90PGon2io8Bx9NusCvXP1AvFb1X2_yN",
+        "name": "fires_cleaned.csv"
+    },
+    "US_weatherfire_weather": {
+        "id": "LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB",
+        "name": "US_wildfire_weather_data.csv"
+    }
+}
 
-df = load_data()
-
+# Load all datasets
+df = download_csv(files["fires"]["1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X"], files["fires"]["fires.csv"])
+df1 = download_csv(files["ires_cleaned"]["M90PGon2io8Bx9NusCvXP1AvFb1X2_yN"], files["fires_cleaned"]["fires_cleaned.csv"])
+df_weather = download_csv(files["US_weatherfire_weather"]["LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB"], files["US_weatherfire_weather"]["US_wildfire_weather_data.csv"])
 
 
 st.title('Projet de 1.88 millions de feux aux USA entre 1992 à 2015')
