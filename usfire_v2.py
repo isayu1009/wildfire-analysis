@@ -205,7 +205,11 @@ if page == pages[2]:
 
 if page == pages[3]:
  
-    df1 = pd.read_csv(df1_url)
+    @st.cache_data
+    def load_data():
+     url = 'https://drive.google.com/uc?export=download&id=1M90PGon2io8Bx9NusCvXP1AvFb1X2_yN' 
+     df1 = pd.read_csv(url)
+     return df1
 #---------------------1ST plot--------------------------------------------------------
 # Clean up year values
     df1['DISCOVERY_YEAR'] = pd.to_numeric(df1['DISCOVERY_YEAR'], errors='coerce')
