@@ -18,18 +18,18 @@ def download_from_drive(file_id, output_name):
             try:
                 gdown.download(url, output_name, quiet=False, fuzzy=True)
             except Exception as e:
-                st.error(f"Download failed: {e}")
-         
-# Use your actual Google Drive file IDs here
-download_from_drive("1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB", "fires.csv")
-download_from_drive("1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB", "fires_cleaned.csv")
-download_from_drive("1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB", "US_wildfire_weather_data.csv")
+                st.error(f"Download failed: {e}"
 
+file_links = {
+    'fires': 'https://drive.google.com/file/d/1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X/view?usp=sharing',
+    'clean_data': 'https://drive.google.com/file/d/1M90PGon2io8Bx9NusCvXP1AvFb1X2_yN/view?usp=sharing',
+    'weather':'https://drive.google.com/file/d/1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB/view?usp=sharing'
+}
 
 # === Load data ===
-df = pd.read_csv('fires.csv')
-df1 = pd.read_csv("fires_cleaned.csv")
-df_weather = pd.read_csv("US_wildfire_weather_data.csv")
+df = pd.read_csv(file_links['fires'])
+df1 = pd.read_csv(file_links['clean_data'])
+df_weather = pd.read_csv(file_links['weather'])
 
 
 st.title('Projet de 1.88 millions de feux aux USA entre 1992 à 2015')
