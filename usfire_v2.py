@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df_url = 'https://drive.google.com/uc?export=download&id=1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X'
+df_url = 'https://drive.google.com/uc?export=download&id=1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X"'
 df1_url = "https://drive.google.com/uc?export=download&id=1M90PGon2io8Bx9NusCvXP1AvFb1X2_yN"
 df_weather = "https://drive.google.com/uc?export=download&id=1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB"
 
