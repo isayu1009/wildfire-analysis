@@ -1,5 +1,6 @@
-# === Import libraries ===
+ # === Import libraries ===
 import os
+os.system('pip install gdown')
 import gdown
 import streamlit as st
 import pandas as pd
@@ -24,10 +25,6 @@ df = pd.read_csv('fires.csv')
 df1 = pd.read_csv("fires_cleaned.csv")
 df_weather = pd.read_csv("US_wildfire_weather_data.csv")
 
-
-
-
-df = pd.read_csv('fires.csv')
 
 st.title('Projet de 1.88 millions de feux aux USA entre 1992 à 2015')
 st.sidebar.title('Sommaire')
