@@ -7,44 +7,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df_url = 'https://drive.google.com/uc?export=download&id=1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X'
-df1_url = "https://drive.google.com/uc?export=download&id=1M90PGon2io8Bx9NusCvXP1AvFb1X2_yN"
-df_weather = "https://drive.google.com/uc?export=download&id=1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB"
+df_url = 'https://drive.google.com/file/d/1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X/view?usp=sharing'
+df1_url = "https://drive.google.com/file/d/1M90PGon2io8Bx9NusCvXP1AvFb1X2_yN/view?usp=sharing"
+df_weather = "https://drive.google.com/file/d/1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB/view?usp=sharing"
 
 # === Load data ===
 df = pd.read_csv(df_url)
 df1 = pd.read_csv(df1_url)
 df_weather = pd.read_csv(df_weather)
-
-@st.cache_data
-def download_csv(file_id, filename):
-    """Download CSV from Google Drive using gdown."""
-    url = f"https://drive.google.com/uc?id={file_id}"
-    if not os.path.exists(filename):
-        gdown.download(url, filename, quiet=False)
-    return pd.read_csv(filename)
-
-# File IDs from Google Drive
-files = {
-    "fires": {
-        "id": "1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X", 
-        "name": "fires.csv"
-    },
-    "fires_cleaned": {
-        "id": "1M90PGon2io8Bx9NusCvXP1AvFb1X2_yN",
-        "name": "fires_cleaned.csv"
-    },
-   "US_weatherfire_weather": {
-        "id": "LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB",
-      "name": "US_wildfire_weather_data.csv"
-}
-
-}
-
-# Load all datasets
-df = download_csv(files["fires"]["id"], files["fires"]["name"])
-df1 = download_csv(files["fires_cleaned"]["id"], files["fires_cleaned"]["name"])
-df_weather = download_csv(files["US_weatherfire_weather"]["id"], files["US_weatherfire_weather"]["name"])
 
 
 st.title('Projet de 1.88 millions de feux aux USA entre 1992 à 2015')
