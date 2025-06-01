@@ -41,9 +41,9 @@ files = {
 }
 
 # Load all datasets
-df = download_csv(files["fires"]["1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X"], files["fires"]["fires.csv"])
-df1 = download_csv(files["ires_cleaned"]["M90PGon2io8Bx9NusCvXP1AvFb1X2_yN"], files["fires_cleaned"]["fires_cleaned.csv"])
-df_weather = download_csv(files["US_weatherfire_weather"]["LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB"], files["US_weatherfire_weather"]["US_wildfire_weather_data.csv"])
+df = download_csv(files["fires"]["id"], files["fires"]["name"])
+df1 = download_csv(files["fires_cleaned"]["id"], files["fires_cleaned"]["name"])
+df_weather = download_csv(files["US_weatherfire_weather"]["id"], files["US_weatherfire_weather"]["name"])
 
 
 st.title('Projet de 1.88 millions de feux aux USA entre 1992 à 2015')
