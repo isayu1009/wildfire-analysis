@@ -7,9 +7,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from google.colab import drive
-drive.mount('/content/drive')
-
 # Load all datasets
 df = pd.read_csv("/content/drive/MyDrive/Projet wild fires/fires.csv")
 df1 = pd.read_csv("/content/drive/MyDrive/Projet wild fires/fires_cleaned.csv")
