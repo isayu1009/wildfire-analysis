@@ -7,10 +7,34 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+@st.cache_data
+def download_csv(file_id, filename):
+    """Download CSV from Google Drive using gdown."""
+    url = f"https://drive.google.com/uc?id={file_id}"
+    if not os.path.exists(filename):
+        gdown.download(url, filename, quiet=False)
+    return pd.read_csv(filename)
+
+# File IDs from Google Drive
+files = {
+    "fires": {
+        "id": "1t7lLZZlC_FpveffIDz5tqAdpbawMfM4X", 
+        "name": "fires.csv"
+    },
+    "fires_cleaned": {
+        "id": "1M90PGon2io8Bx9NusCvXP1AvFb1X2_yN",
+        "name": "fires_cleaned.csv"
+    },
+   "US_weatherfire_weather": {
+        "id": "1LpU30HmDTwFyDhJe8CmO8PjHjgkk7-PB",
+      "name": "US_wildfire_weather_data.csv"
+}
+}
+
 # Load all datasets
-df = pd.read_csv("/content/drive/MyDrive/Projet wild fires/fires.csv")
-df1 = pd.read_csv("/content/drive/MyDrive/Projet wild fires/fires_cleaned.csv")
-df_weather = pd.read_csv("/content/drive/MyDrive/Projet wild fires/US_wildfire_weather_data.csv")
+df = download_csv(files["fires"]["id"], files["fires"]["name"])
+df1 = download_csv(files["fires_cleaned"]["id"], files["fires_cleaned"]["name"])
+df_weather = download_csv(files["US_weatherfire_weather"]["id"], files["US_weatherfire_weather"]["name"])
 
 
 st.title('Projet de 1.88 millions de feux aux USA entre 1992 à 2015')
